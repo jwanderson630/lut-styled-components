@@ -1,35 +1,10 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import GlobalStyles from "./Global";
-import { fixedTop } from "./utilities";
 import { DangerButton, Button } from "./elements";
 import Header from "./layouts/Header";
-import { darkGrey } from "./utilities";
+import { Div, FancyDiv, FixedDiv } from "./elements/Div";
 
-
-
-// Styling a React Component
-
-const Div = ({ children, className }) => <div className={className}>{children}</div>
-
-const FancyDiv = styled(Div)`
-background: white;
-  border-radius: 4px;
-  box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.1);
-  color: ${darkGrey};
-  font-size: 2rem;
-  padding: 20px;
-  text-align: center;
-  margin: 15px 0;
-  transition: transform .2s ease;
-  &:hover {
-    transform: scale(1.1) translateY(-5px);
-  }
-`
-
-const FixedDiv = styled(FancyDiv)`
-  ${fixedTop}
-`
 
 const AppCenter = styled.div`
   min-height: 100vh;
@@ -51,6 +26,9 @@ class App extends Component {
         <AppCenter>
           <Button>Button!</Button>
           <DangerButton>Danger Button!</DangerButton>
+          <Button modifiers={["small"]}>Small Button!</Button>
+          <DangerButton modifiers={["large"]}>Large Danger Button!</DangerButton>
+          <Button modifiers={["groovy"]}>Groovy Button!</Button>
           <Div>I am a regular Div</Div>
           <FancyDiv><span role="img" aria-label="Diamond">💎</span> I am a Fancy Div! <span role="img" aria-label="Diamond">💎</span></FancyDiv>
           <FixedDiv top="100" left="40" ><span role="img" aria-label="Sun">☀️</span> I am a Fixed Div!</FixedDiv>
